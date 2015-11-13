@@ -11,7 +11,7 @@ Un método que incrementa en 1 al display y lo hace volver al principio si alcan
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class meclockdisplay
+public class NumberDisplay
 {
     // instance variables - replace the example below with your own
     private int limitNumber;
@@ -23,19 +23,19 @@ public class meclockdisplay
     /**
      * Constructor for objects of class meclockdisplay
      */
-    public numberDisplay(int limitNUmber, int display2)
+    public NumberDisplay(int limitNUmber, int display2)
     {
         // initialise instance variables
-        display = 0
-        dispalay1 = display2
+        display = 0;
+        dispalay1 = display2;
     }
     
 
     /**
      * fija el valor actual de display al valor pasado como parametro
      */
-    public setValue ()
+    public void setValue ()
     {
-        limitNumber = display;
+    }
         
 }
