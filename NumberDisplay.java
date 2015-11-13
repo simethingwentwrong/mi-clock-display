@@ -27,7 +27,7 @@ public class NumberDisplay
     {
         // initialise instance variables
         display = 0;
-        dispalay1 = display2;
+        display1 = display2;
     }
     
 
@@ -36,6 +36,33 @@ public class NumberDisplay
      */
     public void setValue ()
     {
+        display = display1;
     }
+    
+    public String getDisplayValue()
+    {
+        String displayZ = "%02d";
+        String result = String.format (displayZ,display);
+        return result;
+    }
+     
+    public int getValue ()
+    {
+        return display;
+    }
+    
+    public void increment ()
+    {
+        if(display == limitNumber)
+        {
+            display = 0;
+        }
+        else {
+            display = display+1;
+        }
+    }
+    
+    
+   
         
 }
