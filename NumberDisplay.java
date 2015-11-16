@@ -14,31 +14,36 @@ Un método que incrementa en 1 al display y lo hace volver al principio si alcan
 public class NumberDisplay
 {
     // instance variables - replace the example below with your own
+    //guardamos el limite
     private int limitNumber;
-    
-    private int display1;
+    //guardamos el numero 
     
     private int display;
 
     /**
      * Constructor for objects of class meclockdisplay
      */
-    public NumberDisplay(int limitNUmber, int display2)
+    public NumberDisplay(int limitNumber1)
     {
         // initialise instance variables
         display = 0;
-        display1 = display2;
+        limitNumber = limitNumber1;
+       
     }
     
 
     /**
      * fija el valor actual de display al valor pasado como parametro
      */
-    public void setValue ()
+    public void setValue (int display1)
     {
         display = display1;
+        
     }
     
+    /**
+     * Un método setter que fija el valor actual del display al valor pasado como parámetro
+     */
     public String getDisplayValue()
     {
         String displayZ = "%02d";
@@ -46,11 +51,17 @@ public class NumberDisplay
         return result;
     }
      
+    /**
+     * Un método que devuelve el valor actual del display en forma de cadena de 2 caracteres
+     */
     public int getValue ()
     {
         return display;
     }
     
+    /**
+     * Un método que incrementa en 1 al display y lo hace volver al principio si alcanza el límite
+     */
     public void increment ()
     {
         if(display == limitNumber)

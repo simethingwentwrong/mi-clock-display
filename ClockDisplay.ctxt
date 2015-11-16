@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ClockDisplay()
+comment0.text=\r\n\ Constructor\ que\ fijas\ tu\ los\ parametros\r\n
+comment1.params=horas1\ minutos1
+comment1.target=ClockDisplay(int,\ int)
+comment1.text=\r\n\ constructor\ que\ te\ fija\ todo\ en\ o\r\n
+comment2.params=
+comment2.target=void\ updateDisplay()
+comment2.text=\r\n\ \r\n
+comment3.params=hora\ minuto
+comment3.target=void\ setTime(int,\ int)
+comment3.text=\r\n\ \r\n
+comment4.params=
+comment4.target=java.lang.String\ getTime()
+comment4.text=\r\n\ \r\n
+comment5.params=
+comment5.target=void\ timeTick()
+comment5.text=\r\n\ \r\n
+numComments=6
