@@ -15,6 +15,8 @@ public class ClockDisplay
     
     // se guarda la hora actual con 5 caracteres
     private String HoraActual;
+    // añadimos para diferenciar AM de PM
+       private String indicador;
 
     /**
      * Constructor que fijas tu los parametros
@@ -23,6 +25,7 @@ public class ClockDisplay
     {
        horas = new NumberDisplay (24);
        minutos = new NumberDisplay (60);
+       
        updateDisplay();
       
     }
@@ -34,6 +37,7 @@ public class ClockDisplay
     {
        horas = new NumberDisplay (24);
        minutos = new NumberDisplay (60);
+
        setTime (horas1, minutos1);
     }
     
@@ -42,7 +46,19 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        HoraActual= horas.getDisplayValue() + ":" + minutos.getDisplayValue();                        
+           
+        if (horas.getValue()>=12)
+        {
+          indicador ="PM";
+          int hora = horas.getValue() - 12;
+            
+        }
+        else
+        {
+            indicador="AM";
+            
+        }
+        HoraActual= horas.getDisplayValue() + ":" + minutos.getDisplayValue() + indicador;                        
         
     }
     

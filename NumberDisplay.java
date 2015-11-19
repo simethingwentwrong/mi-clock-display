@@ -1,79 +1,70 @@
 
 /**
- * Write a description of class meclockdisplay here.
- *la clase NumberDisplay realizando los commits que creas oportunos. A continuación se indica qué es necesario que, como mínimo, implemente dicha clase:
-
-Un constructor que recibe por parámetro el límite del display y que fija el valor actual del display a 0.
-Un método setter que fija el valor actual del display al valor pasado como parámetro (nombre del método: setValue).
-Un método que devuelve el valor actual del display en forma de cadena de 2 caracteres (nombre del método: getDisplayValue).
-Un método que devuelve el valor actual del display como entero (nombre del método: getValue),
-Un método que incrementa en 1 al display y lo hace volver al principio si alcanza el límite (nombre del método: increment)
- * @author (your name) 
- * @version (a version number or a date)
+ * The NumberDisplay class represents a digital number display that can hold
+ * values from zero to a given limit. The limit can be specified when creating
+ * the display. The values range from zero (inclusive) to limit-1. If used,
+ * for example, for the seconds on a digital clock, the limit would be 60, 
+ * resulting in display values from 0 to 59. When incremented, the display 
+ * automatically rolls over to zero when reaching the limit.
+ * 
+ * @author Michael Kölling and David J. Barnes
+ * @version 2011.07.31
  */
 public class NumberDisplay
 {
-    // instance variables - replace the example below with your own
-    //guardamos el limite
-    private int limitNumber;
-    //guardamos el numero 
-    
-    private int display;
+    private int limit;
+    private int value;
 
     /**
-     * Constructor for objects of class meclockdisplay
+     * Constructor for objects of class NumberDisplay.
+     * Set the limit at which the display rolls over.
      */
-    public NumberDisplay(int limitNumber1)
+    public NumberDisplay(int rollOverLimit)
     {
-        // initialise instance variables
-        display = 0;
-        limitNumber = limitNumber1;
-       
+        limit = rollOverLimit;
+        value = 0;
     }
-    
 
     /**
-     * fija el valor actual de display al valor pasado como parametro
+     * Return the current value.
      */
-    public void setValue (int display1)
+    public int getValue()
     {
-        display = display1;
-        
+        return value;
     }
-    
+
     /**
-     * Un método setter que fija el valor actual del display al valor pasado como parámetro
+     * Return the display value (that is, the current value as a two-digit
+     * String. If the value is less than ten, it will be padded with a leading
+     * zero).
      */
     public String getDisplayValue()
     {
-        String displayZ = "%02d";
-        String result = String.format (displayZ,display);
-        return result;
-    }
-     
-    /**
-     * Un método que devuelve el valor actual del display en forma de cadena de 2 caracteres
-     */
-    public int getValue ()
-    {
-        return display;
-    }
-    
-    /**
-     * Un método que incrementa en 1 al display y lo hace volver al principio si alcanza el límite
-     */
-    public void increment ()
-    {
-        if(display == limitNumber)
-        {
-            display = 0;
+        if(value < 10) {
+            return "0" + value;
         }
         else {
-            display = display+1;
+            return "" + value;
         }
     }
-    
-    
-   
-        
+
+    /**
+     * Set the value of the display to the new specified value. If the new
+     * value is less than zero or over the limit, do nothing.
+     */
+    public void setValue(int replacementValue)
+    {
+        if((replacementValue >= 0) && (replacementValue < limit)) {
+            value = replacementValue;
+        }
+    }
+
+    /**
+     * Increment the display value by one, rolling over to zero if the
+     * limit is reached.
+     */
+    public void increment()
+    {
+        value = (value + 1) % limit;
+    }
 }
